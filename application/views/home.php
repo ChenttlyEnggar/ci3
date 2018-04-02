@@ -26,6 +26,7 @@
 					<li><a class="page-scroll" href="#carousel-281873">Home</a></li>
 					<li><a class="page-scroll" href="#sejarah">About</a></li>
 					<li><a class="page-scroll" href="#profil">Profil</a></li>
+					<li><a class="page-scroll" href="about">Blog</a></li>
 					
 				</ul>
 			</div>   
