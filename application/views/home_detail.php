@@ -63,7 +63,7 @@
           <table>
           <tr class="text-center">
             <td>
-              <h3><b><?php echo $key->judul; ?></b><h3>
+              <h1><b><?php echo $key->judul; ?></b><h1>
               </td>
           </tr>
           <tr>

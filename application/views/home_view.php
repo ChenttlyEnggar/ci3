@@ -61,18 +61,61 @@
         <div class="well well-sm">
           <div class="row">
             <div class="col-sm-12 col-md-12">
-            	<a href="About/detail/<?php echo $key->id_blog ?>" style="color"; black;">
-              <h3><?php echo $key->judul ?></h3>
+            	<a href="About/detail/<?php echo $key->id_blog ?>" style="color"; black;">`
+             
+              
+              <img src='img/<?php echo $key->image;?>' alt="Image" width="500">
               <br>
-              <img src="img/<?php echo $key->image;?>" alt="Image" width="500">
-              <p>
+               <h3><?php echo $key->judul ?></h3>
+             </a>
+             <br></b>
+             <!-- <button>Edit</button> -->
+
+             <!--<button>Delete</button> -->
+             <a href='About/edit/<?php echo $key->id_blog?>' class='btn btn-sm btn-danger'>Edit</a>
+             <a href='About/delete/<?php echo $key->id_blog;?>' class='btn btn-sm btn-danger'>Hapus</a>
+
+              <p></a>
                 diupload tanggal : <?php echo $key->tanggal ?><br>
+
                 
               </p>
             </div>
           </div>
         </div>
         <?php endforeach ?>
+
+        <!-- form untuk menambahkan data -->
+    <div class="container">
+      <?php
+        echo form_open('about/tambah', array('enctype'=>'multipart/form-data')); 
+       ?>
+      <table>
+        <tr>
+          <td>Judul</td>
+          <td>:</td>
+          <td><input type="text" name="input_judul" value="<?php echo set_value('input_judul'); ?>"></td>
+        </tr>
+        <tr>
+          <td>Content</td>
+          <td>:</td>
+          <td><input type="text" name="input_content" value=""></td>
+        </tr>
+        <tr>
+          <td>Tanggal </td>
+          <td>:</td>
+          <td><input type="text" name="input_tanggal" value=""></td>
+        </tr>
+        <tr>
+          <td>Gambar</td>
+          <td>:</td>
+          <td><input type="file" name="input_gambar"></td>
+        </tr>
+        <tr>
+          <td colspan="3"><input type="submit" name="simpan" value="simpan"></td>
+        </tr>
+      </table>
+    </div>
 	
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
