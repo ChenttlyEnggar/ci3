@@ -22,7 +22,20 @@ class About extends CI_Controller {
 		$this->load->model('Artikel');
 		$data = array();
 
-		if ($this->input->post('simpan')) {
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('input_judul','isi judul !!!', 'required', array('required' => 'isi %s,'));
+		$this->form_validation->set_rules('input_tanggal','isi tanggal !!!', 'required', array('required' => 'isi %s,'));
+		$this->form_validation->set_rules('input_content','isi konten !!!', 'required', array('required' => 'isi %s,'));
+		$this->form_validation->set_rules('input_nama_penulis','isi nama penulis !!!', 'required', array('required' => 'isi %s,'));
+		$this->form_validation->set_rules('input_lokasi_penulis','isi lokasi penulis !!!', 'required', array('required' => 'isi %s,'));
+		$this->form_validation->set_rules('input_penerbit','isi penerbit !!!', 'required', array('required' => 'isi %s,'));
+
+		if($this->form_validation->run()==false){
+			$this->load->view('tambah');
+		}
+		else{
+
+			if ($this->input->post('simpan')) {
 			$upload = $this->Artikel->upload();
 
 			if ($upload['result'] == 'success') {
@@ -35,6 +48,7 @@ class About extends CI_Controller {
 
 		$this->load->view('home_view', $data);
 	}
+}
 
 	public function delete($id_blog){
 		$this-> load->model('Artikel');
@@ -45,7 +59,7 @@ class About extends CI_Controller {
 	public function edit($id_blog){
 		$this-> load->model('Artikel');
 		$data['tipe'] = "Edit";
-		$data['default'] = $this->Artikel->get_default($id_blog);
+		$data['default'] = $this->Artikel->get_single($id_blog);
 
 		if(isset($_POST['simpan'])){
 			$this->Artikel->update($_POST, $id_blog);

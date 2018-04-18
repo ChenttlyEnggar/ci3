@@ -39,7 +39,10 @@ class Artikel extends CI_Model {
 			'judul' => $this->input->post('input_judul'),
 			'tanggal' => $this->input->post('input_tanggal'),
 			'konten' => $this->input->post('input_content'),
-			'image' => $upload['file']['file_name']
+			'image' => $upload['file']['file_name'],
+			'nama_penulis' => $this->input->post('input_nama_penulis'),
+			'lokasi_penulis' => $this->input->post('input_lokasi_penulis'),
+			'penerbit' => $this->input->post('input_penerbit')
 		);
 
 		$this->db->insert('biodata', $data);

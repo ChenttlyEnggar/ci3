@@ -91,7 +91,7 @@
         echo form_open('about/tambah', array('enctype'=>'multipart/form-data')); 
        ?>
       <table>
-        <tr>
+       <!--  <tr>
           <td>Judul</td>
           <td>:</td>
           <td><input type="text" name="input_judul" value="<?php echo set_value('input_judul'); ?>"></td>
@@ -111,8 +111,10 @@
           <td>:</td>
           <td><input type="file" name="input_gambar"></td>
         </tr>
-        <tr>
-          <td colspan="3"><input type="submit" name="simpan" value="simpan"></td>
+        <tr> -->
+          <br>
+          <li><a href="about/tambah" class="btn-sm btn-danger"> Tambah</a></li>
+          <!-- <td colspan="3"><input type="submit" name="simpan" value="simpan"></td> -->
         </tr>
       </table>
     </div>
