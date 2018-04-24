@@ -68,5 +68,31 @@ class About extends CI_Controller {
 
 		$this->load->view('home_view_form', $data);
 	}
-	
+
+	 public function create()
+    {
+        // Judul Halaman
+        $data['page_title'] = 'Buat Kategori';
+
+        // Form validasi untuk Nama Kategori
+        $this->form_validation->set_rules(
+            'cat_name',
+            'Nama Kategori',
+            'required|is_unique[categories.cat_name]',
+            array(
+                'required' => 'Isi %s donk, males amat.',
+                'is_unique' => 'Judul ' . $this->input->post('title') . ' sudah ada 
+bosque.'
+            )
+        );
+          if($this->form_validation->run() === FALSE){
+            //$this->load->view('templates/header');
+            $this->load->view('home_view', $data);
+            //$this->load->view('templates/footer');
+        } else {
+            $this->category_model->create_category();
+            redirect('category');
+        }
+    }
+
 }
