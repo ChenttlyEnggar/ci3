@@ -27,7 +27,7 @@
 					<li><a class="page-scroll" href="home">About</a></li>
 					<li><a class="page-scroll" href="home">Profil</a></li>
 					<li><a class="page-scroll" href="about">Blog</a></li>
-					
+					<li><a class="page-scroll" href="category">Kategori</a></li>
 				</ul>
 			</div>   
 		</div>
@@ -86,11 +86,11 @@
         <?php endforeach ?>
 
         <!-- form untuk menambahkan data -->
-    <div class="container">
+    <<!-- div class="container">
       <?php
         echo form_open('about/tambah', array('enctype'=>'multipart/form-data')); 
        ?>
-      <table>
+      <table> -->
        <!--  <tr>
           <td>Judul</td>
           <td>:</td>
@@ -114,25 +114,13 @@
         <tr> -->
           <br>
           <li><a href="about/tambah" class="btn-sm btn-danger"> Tambah</a></li>
+          <li><a href="category/create" class="btn-sm btn-info"> Tambah Kategori</a></li>
           <!-- <td colspan="3"><input type="submit" name="simpan" value="simpan"></td> -->
         </tr>
       </table>
     </div>
 	
-<?php echo form_open( 'category/create', array('class' => 'needs-validation', 'novalidate' => '') ); ?>
 
-<div class="form-group">
-   <label for="cat_name">Nama Kategori</label>
-   <input type="text" class="form-control" name="cat_name" value="<?php echo set_value('cat_name') ?>" required>
-   <div class="invalid-feedback">Isi judul dulu gan</div>
-</div>
-
-<div class="form-group">
-   <label for="text">Deskripsi</label>
-   <input type="text" class="form-control" name="cat_description" value="<?php echo set_value('cat_description') ?>" required>
-   <div class="invalid-feedback">Isi deskripsinya dulu gan</div>
-</div>
-<button id="submitBtn" type="submit" class="btn btn-primary">Simpan</button>
 
   
     <script src="assets/js/jquery.min.js"></script>
