@@ -38,6 +38,15 @@
           <td>:</td>
           <td><input type="text" name="input_penerbit" value="<?php echo set_value('input_penerbit'); ?>""></td>
         </tr>
+         <tr>
+          <label>Category</label>
+          <select name="id" class="form-control" required>
+            <option value="">Pilih Category</option>
+            <?php foreach ($Category as $key): ?>
+              <option value="<?php echo $key->id; ?>"><?php echo $key->cat_name; ?></option>
+              <?php endforeach; ?>
+            </select>
+            </tr>
           <td colspan="3"><input type="submit" name="simpan" value="simpan"></td>
         </tr>
       </table>

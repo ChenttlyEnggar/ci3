@@ -12,6 +12,12 @@ class Artikel extends CI_Model {
 	{
 		$query = $this->db->query('select * from biodata where id_blog='.$id);
 		return $query->result();
+
+		$this->db->select("*");
+		$this->db->from('biodata');
+		$this->db->join('categories','biodata.id = categories.id');
+		$this->db->where('biodata.id_blog='.$id);
+		return $this->db->get()->result();
 	}
 
 	public function upload()
@@ -42,7 +48,8 @@ class Artikel extends CI_Model {
 			'image' => $upload['file']['file_name'],
 			'nama_penulis' => $this->input->post('input_nama_penulis'),
 			'lokasi_penulis' => $this->input->post('input_lokasi_penulis'),
-			'penerbit' => $this->input->post('input_penerbit')
+			'penerbit' => $this->input->post('input_penerbit'),
+			'id' => $this->input->post('id')
 		);
 
 		$this->db->insert('biodata', $data);

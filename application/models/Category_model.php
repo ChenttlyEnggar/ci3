@@ -11,6 +11,11 @@ class Category_model extends CI_Model{
 		$query = $this->db->query('select * from categories where id='.$id);
 		return $query->result();
 	}
+  // public function index(){
+  //   $this->load->model('Category_model');
+
+  //   $data['Category'] = $this->Category_model->get_category();
+  // }
 
 	public function create_category()
    	{
