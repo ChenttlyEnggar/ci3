@@ -3,11 +3,11 @@
   <head>
  	 <title>Yogyakarta</title>
 
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="aseets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/font-awesome.css" type="text/css">  
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>aseets/css/bootstrap.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/font-awesome.css" type="text/css">  
 
     </head>
   <body>
@@ -23,11 +23,12 @@
 			</div>   
 			<div class="single-page-nav sticky-wrapper" id="tmNavbar">
 				<ul class="nav navbar-nav">
-					<li><a class="page-scroll" href="home">Home</a></li>
-					<li><a class="page-scroll" href="home">About</a></li>
-					<li><a class="page-scroll" href="home">Profil</a></li>
-					<li><a class="page-scroll" href="about">Blog</a></li>
-					<li><a class="page-scroll" href="category">Kategori</a></li>
+					<li><a class="page-scroll" href="<?php echo base_url() ?>home">Home</a></li>
+					<li><a class="page-scroll" href="<?php echo base_url() ?>home">About</a></li>
+					<li><a class="page-scroll" href="<?php echo base_url() ?>home">Profil</a></li>
+					<li><a class="page-scroll" href="<?php echo base_url() ?>about">Blog</a></li>
+					<li><a class="page-scroll" href="<?php echo base_url() ?>category">Kategori</a></li>
+          <li><a class="page-scroll" href="<?php echo base_url() ?>Datatablesctr">Data Table</a></li>
 				</ul>
 			</div>   
 		</div>
@@ -51,17 +52,17 @@
 							</h4>
 						</div>
 					</div>
-				</div> <a class="left carousel-control" href="#carousel-281873" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-281873" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+				</div> <a class="left carousel-control" href="<?php echo base_url() ?>#carousel-281873" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="<?php echo base_url() ?>#carousel-281873" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
 			</div>
 		</div>
 	</div>
 
-	      <?php foreach ($artikel as $key): ?>
+	      <?php foreach ($Artikel as $key): ?>
 
         <div class="well well-sm">
           <div class="row">
             <div class="col-sm-12 col-md-12">
-            	<a href="About/detail/<?php echo $key->id_blog ?>" style="color"; black;">`
+            	<a href="<?php echo base_url() ?>About/detail/<?php echo $key->id_blog ?>" style="color"; black;">`
              
               
               <img src='img/<?php echo $key->image;?>' alt="Image" width="500">
@@ -72,8 +73,8 @@
              <!-- <button>Edit</button> -->
 
              <!--<button>Delete</button> -->
-             <a href='About/edit/<?php echo $key->id_blog?>' class='btn btn-sm btn-danger'>Edit</a>
-             <a href='About/delete/<?php echo $key->id_blog;?>' class='btn btn-sm btn-danger'>Hapus</a>
+             <a href='<?php echo base_url() ?>About/edit/<?php echo $key->id_blog?>' class='btn btn-sm btn-danger'>Edit</a>
+             <a href='<?php echo base_url() ?>About/delete/<?php echo $key->id_blog;?>' class='btn btn-sm btn-danger'>Hapus</a>
 
               <p></a>
                 diupload tanggal : <?php echo $key->tanggal ?><br>
@@ -113,14 +114,31 @@
         </tr>
         <tr> -->
           <br>
-          <li><a href="about/tambah" class="btn-sm btn-danger"> Tambah</a></li>
-          <li><a href="category/create" class="btn-sm btn-info"> Tambah Kategori</a></li>
+          <li><a href="<?php echo base_url() ?>about/tambah" class="btn-sm btn-danger"> Tambah</a></li>
+          <li><a href="<?php echo base_url() ?>category/create" class="btn-sm btn-info"> Tambah Kategori</a></li>
           <!-- <td colspan="3"><input type="submit" name="simpan" value="simpan"></td> -->
         </tr>
       </table>
     </div>
 	
+<!-- <ul class="pagination justify-content-center">
+ <li class="page-item disabled">
+ <a class="page-link" href="#" tabindex="-1">Previous</a>
+ </li>
+ <li class="page-item"><a class="page-link" href="#">1</a></li>
+ <li class="page-item"><a class="page-link" href="#">2</a></li>
+ <li class="page-item"><a class="page-link" href="#">3</a></li>
+ <li class="page-item">
+ <a class="page-link" href="#">Next</a>
+ </li>
+</ul>
+ -->
 
+ <?php
+if(isset($links)) {
+  echo $links;
+}
+?>
 
   
     <script src="assets/js/jquery.min.js"></script>

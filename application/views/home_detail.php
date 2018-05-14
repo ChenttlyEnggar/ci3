@@ -27,6 +27,7 @@
 					<li><a class="page-scroll" href="../../home">About</a></li>
 					<li><a class="page-scroll" href="../../home">Profil</a></li>
 					<li><a class="page-scroll" href="../../about">Blog</a></li>
+          <li><a class="page-scroll" href="../../Datatablesctr">Data Table</a></li>
 					
 				</ul>
 			</div>   
