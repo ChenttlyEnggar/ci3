@@ -3,6 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class About extends CI_Controller {
 
+	function __construct(){
+
+		parent::__construct();
+
+		$this->load->model('category_model');
+		$this->load->model('Artikel');
+
+	}
+
 	public function index()
 	{
 		$this->load->model('Artikel');
@@ -45,6 +54,11 @@ class About extends CI_Controller {
 
 	public function tambah()
 	{
+		//cek login
+	if(!$this->session->userdata('logged_in')){
+		redirect('user/login');
+	}
+
 		$this->load->model('Artikel');
 		$this->load->model('category_model');
 		$data = array();

@@ -8,6 +8,13 @@ class Category extends CI_Controller {
         $this->load->view('cat_view', $data);
     }
 
+    public function detail($id)
+    {
+        $this->load->model('category_model');
+        $data['detail'] = $this->category_model->get_single($id);
+        $this->load->view('category_detail', $data);
+    }
+
     public function create()    
     {
         $this->load->model('category_model');
