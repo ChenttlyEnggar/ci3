@@ -44,7 +44,6 @@
 
                     <div class="btn-group" role="group" aria-label="Data baru">
 
-                    	<a href="<?php echo base_url() ?>'user/register', 'Register',array('class' => 'btn-sm btn-danger"> Tambah</a></li>
 
 
                        <?php echo anchor('user/register', 'Register', array('class' => 'btn-sm btn-info')); ?>
