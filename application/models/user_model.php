@@ -25,7 +25,7 @@ class User_model extends CI_Model {
   function get_user_level($user_id)
    {
         // Dapatkan data user berdasar $user_id
-        $this->db->select('fk_level_id');
+        $this->db->select('fk_id_level');
         $this->db->where('user_id', $user_id);
 
         $result = $this->db->get('users');
@@ -39,7 +39,7 @@ class User_model extends CI_Model {
 
     function get_user_details($user_id)
     {
-        $this->db->join('levels', 'levels.level_id = users.fk_level_id', 'left');
+        $this->db->join('level', 'level.level_id = users.fk_id_level', 'left');
         $this->db->where('user_id', $user_id);
 
         $result = $this->db->get('users');

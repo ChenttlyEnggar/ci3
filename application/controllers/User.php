@@ -66,6 +66,7 @@ class User extends CI_Controller{
 			'user_id' => $user_id,
 			'username' => $username,
 			'logged_in' => true,
+			'fk_id_level' => $this ->user_model -> get_user_level($user_id),
 
 
 		);
@@ -99,19 +100,40 @@ class User extends CI_Controller{
 	}
 
 
-	// Fungsi Dashboard
-	function dashboard()
-	{
-		// Must login
-		if(!$this->session->userdata('logged_in')) 
-			redirect('user/login');
-		$user_id = $this->session->userdata('user_id');
-		// Dapatkan detail dari User
-		$data['user'] = $this->user_model->get_user_details( $user_id );
-		// Load view
-		$this->load->view('header', $data, FALSE);
-		$this->load->view('users/dashboard', $data, FALSE);
-		$this->load->view('footer', $data, FALSE);
-	}
+//untuk memanggil sesion level 
+	public function get_userdata(){
 
-}
+       $userData = $this->session->userdata();
+
+       return $userData;
+   }
+
+	// Dashboard
+    public function dashboard(){
+
+        if(!$this->session->userdata('logged_in')){
+            redirect('user/login');
+        }
+
+        $username = $this->session->userdata('username');
+
+        // Dapatkan detail user
+        $data['user'] = $this->user_model->get_user_details( $username );
+
+ 		$userData = $this->get_userdata();
+
+        if ($userData['fk_id_level'] === '1'){
+            $this->load->view('templates/header');
+            $this->load->view('operator', $data);
+            $this->load->view('templates/footer');
+        } else if ($userData['fk_id_level'] === '2'){
+            $this->load->view('templates/header');
+            $this->load->view('member_premium', $data);
+            $this->load->view('templates/footer');
+        } else if ($userData['fk_id_level'] === '3') {
+            $this->load->view('templates/header');
+            $this->load->view('member_biasa', $data);
+            $this->load->view('templates/footer');
+        }
+    }
+ }
