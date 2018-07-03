@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User_model extends CI_Model {
+class user_model extends CI_Model {
 
     function __construct(){
         parent::__construct();
@@ -31,21 +31,21 @@ class User_model extends CI_Model {
         $result = $this->db->get('users');
 
         if($result->num_rows() == 1){
-            return $result->row(0);
+            return $result->row(0)->fk_id_level;
         } else {
             return false;
         }
     }
 
-    function get_user_details($user_id)
+    function get_user_details($username)
     {
         $this->db->join('level', 'level.level_id = users.fk_id_level', 'left');
-        $this->db->where('user_id', $user_id);
+        $this->db->where('username', $username);
 
         $result = $this->db->get('users');
 
         if($result->num_rows() == 1){
-            return $result->row(0);
+            return $result->row();
         } else {
             return false;
         }

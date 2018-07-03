@@ -115,25 +115,20 @@ class User extends CI_Controller{
             redirect('user/login');
         }
 
-        $username = $this->session->userdata('username');
+        $user_id = $this->session->userdata('username');
 
         // Dapatkan detail user
-        $data['user'] = $this->user_model->get_user_details( $username );
+        $data['user'] = $this->user_model->get_user_details( $user_id );
+
 
  		$userData = $this->get_userdata();
 
         if ($userData['fk_id_level'] === '1'){
-            $this->load->view('templates/header');
             $this->load->view('operator', $data);
-            $this->load->view('templates/footer');
         } else if ($userData['fk_id_level'] === '2'){
-            $this->load->view('templates/header');
             $this->load->view('member_premium', $data);
-            $this->load->view('templates/footer');
         } else if ($userData['fk_id_level'] === '3') {
-            $this->load->view('templates/header');
             $this->load->view('member_biasa', $data);
-            $this->load->view('templates/footer');
         }
     }
  }
